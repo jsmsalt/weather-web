@@ -67,7 +67,7 @@ export const WeatherCard = ({ city }: IWeatherCardProps) => {
 
                         {weather && !loading ? (
                             <Typography variant='h1' sx={{ color: "white" }}>
-                                {weather!.weather.temp}°C
+                                {Math.floor(weather!.weather.temp)}°C
                             </Typography>
                         ) : (
                             <Skeleton variant='rectangular' width={330} height={80} sx={{ marginBottom: "20px" }} />
@@ -81,7 +81,7 @@ export const WeatherCard = ({ city }: IWeatherCardProps) => {
                                     marginBottom: "20px",
                                 }}
                             >
-                                Humedad: {weather!.weather.humidity}%, Presión:{weather!.weather.pressure}hPa
+                                Humedad: {weather!.weather.humidity}%, Presión: {weather!.weather.pressure}hPa
                             </Typography>
                         ) : (
                             <Skeleton variant='rectangular' width={320} height={30} sx={{ marginBottom: "20px" }} />
