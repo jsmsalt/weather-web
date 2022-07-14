@@ -7,5 +7,9 @@ export const theme = createTheme({
             default: "#eee",
             paper: "#fff",
         },
+        primary: {
+            main: "#9B26B6",
+            contrastText: "#fff",
+        },
     },
 });
