@@ -7,6 +7,8 @@ import "dayjs/locale/es";
 import { getCurrentWeather } from "../../services";
 import { ICurrentResponse } from "../../services/interfaces";
 import { WeatherIcon } from "../WeatherIcon";
+import { useAtom } from "jotai";
+import { bgMode } from "../../store/atoms";
 
 interface IWeatherCardProps {
     city?: string;
@@ -15,12 +17,15 @@ interface IWeatherCardProps {
 export const WeatherCard = ({ city }: IWeatherCardProps) => {
     const [weather, setWeather] = useState<ICurrentResponse>();
     const [loading, setLoading] = useState(true);
+    const [_, setBgMode] = useAtom(bgMode);
 
     useEffect(() => {
         setLoading(true);
         getCurrentWeather(city).then((res) => {
             if (res.ok) {
                 setWeather(res.data);
+                // setBgMode(res.data.weather.icon.endsWith("d") ? "day" : "night");
+                setBgMode(res.data.weather.icon.startsWith("01") ? "day" : "night");
             }
             setLoading(false);
         });
