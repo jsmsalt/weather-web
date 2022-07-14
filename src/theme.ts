@@ -12,4 +12,39 @@ export const theme = createTheme({
             contrastText: "#fff",
         },
     },
+
+    components: {
+        MuiInputLabel: {
+            styleOverrides: {
+                root: ({ theme }) => ({
+                    color: "white",
+                }),
+            },
+        },
+        MuiOutlinedInput: {
+            styleOverrides: {
+                root: ({ theme }) => ({
+                    color: "white",
+                    borderRadius: "10px",
+                    "&:hover .MuiOutlinedInput-notchedOutline": {
+                        borderColor: "white",
+                    },
+
+                    "&:focused .MuiOutlinedInput-notchedOutline": {
+                        borderColor: "white",
+                    },
+                }),
+                notchedOutline: ({ theme }) => ({
+                    borderColor: "white",
+                }),
+            },
+        },
+        MuiSvgIcon: {
+            styleOverrides: {
+                root: ({ theme }) => ({
+                    fill: "white",
+                }),
+            },
+        },
+    },
 });
