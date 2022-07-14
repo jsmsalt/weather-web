@@ -24,8 +24,7 @@ export const WeatherCard = ({ city }: IWeatherCardProps) => {
         getCurrentWeather(city).then((res) => {
             if (res.ok) {
                 setWeather(res.data);
-                // setBgMode(res.data.weather.icon.endsWith("d") ? "day" : "night");
-                setBgMode(res.data.weather.icon.startsWith("01") ? "day" : "night");
+                setBgMode(res!.data!.weather.icon.endsWith("d") ? "day" : "night");
             }
             setLoading(false);
         });
