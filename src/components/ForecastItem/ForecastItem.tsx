@@ -31,16 +31,20 @@ export const ForecastItem = ({ weather }: IForecastItemProps) => {
 
                         <WeatherIcon icon={weather.icon} size={80} />
 
-                        <Typography variant='body2' color='white' sx={{ marginBottom: "15px", textAlign: "center" }}>
+                        <Typography
+                            variant='body2'
+                            color='white'
+                            sx={{ marginBottom: "5px", textAlign: "center", minHeight: "50px" }}
+                        >
                             {weather.description.toUpperCase()}
                         </Typography>
 
-                        <Typography variant='body1' color='white'>
-                            Min: {Math.floor(weather.temp_min)}°C
+                        <Typography variant='h4' color='white' sx={{ marginBottom: "5px", textAlign: "center" }}>
+                            {Math.floor(weather.temp)}°C
                         </Typography>
 
-                        <Typography variant='body1' color='white'>
-                            Max: {Math.floor(weather.temp_max)}°C
+                        <Typography variant='body1' color='white' sx={{ textAlign: "center" }}>
+                            Humedad: {Math.floor(weather.humidity)}%
                         </Typography>
                     </Grid>
                 </Grid>
